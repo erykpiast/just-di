@@ -25,7 +25,7 @@ export default class DI {
         _assertNotDisposed(this);
         
         if ('function' !== typeof fn) {
-            throw new Error('you can use Depender only with functions!');
+            throw new Error('argument has to be a function');
         }
         
         let args = getParameterNames(fn).map((fnName) => {
