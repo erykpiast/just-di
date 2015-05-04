@@ -1,0 +1,54 @@
+{
+  "name": "just-di",
+  "version": "0.0.0",
+  "description": "The simplest dependency injector for Node.js and Browserify.",
+  "main": "dist/just-di.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/erykpiast/just-di.git"
+  },
+  "keywords": [
+    "dependencyc",
+    "injector",
+    "inject",
+    "depends"
+  ],
+  "author": "Eryk Napierała <eryk.piast@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erykpiast/just-di/issues"
+  },
+  "dependencies": {
+    "get-parameter-names": "^0.2.0"
+  },
+  "devDependencies": {
+    "babel": "~5.2",
+    "babelify": "~6.0",
+    "browserify": "~9.0",
+    "chai": "~2.3",
+    "chai-spies": "~0.6",
+    "jscs": "~1.12",
+    "jshint": "~2.7",
+    "mocha": "~2.2",
+    "uglify-js": "~2.4"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "jshint": "jshint src/",
+    "jscs": "jscs src/",
+    "mocha": "mocha --compilers js:babel/register --reporter spec --ui tdd test",
+    "test": "npm run jshint && npm run mocha",
+    "browserify": "browserify src/di.js -t babelify --standalone DI --outfile dist/just-di.js",
+    "uglify": "uglifyjs dist/just-di.js -o dist/just-di.min.js",
+    "dist": "npm run browserify && npm run uglify",
+    "precompile": "rm -rf dist/ && mkdir -p dist",
+    "compile": "babel -d dist/ src/",
+    "prepublish": "npm run compile",
+    "release": "npm run release-patch",
+    "release-patch": "git checkout master && npm run compile; git commit -a -m 'Build dist/'; npm version patch && git push origin master --tags && npm publish",
+    "release-minor": "git checkout master && npm run compile; git commit -a -m 'Build dist/'; npm version minor && git push origin master --tags && npm publish",
+    "release-major": "git checkout master && npm run compile; git commit -a -m 'Build dist/'; npm version major && git push origin master --tags && npm publish"
+  }
+}
