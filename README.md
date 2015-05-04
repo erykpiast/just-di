@@ -5,9 +5,7 @@ The simplest dependency injector for Node.js and browsers.
 ### Installation
 
 ```
-
 $ npm install just-di
-
 ```
 
 ### Example

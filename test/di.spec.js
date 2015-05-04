@@ -6,7 +6,7 @@ import spies from 'chai-spies';
 
 chai.use(spies);
 
-import DI form '../src/di';
+import DI from '../src/di';
 
 
 suite('DI', () => {
@@ -20,7 +20,7 @@ suite('DI', () => {
         test('should can be instantiated', () => {
             let di;
             
-            assert.notThrows(() => {
+            assert.doesNotThrow(() => {
                 di = new DI();
             });
             
@@ -33,7 +33,7 @@ suite('DI', () => {
     suite('instance API', () => {
         let di;
         
-        setUp(() => {
+        setup(() => {
             di = new DI();
         });
         

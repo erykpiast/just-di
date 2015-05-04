@@ -1,4 +1,4 @@
-import getParametersNames from 'get-parameters-names';
+import getParameterNames from 'get-parameter-names';
 
 
 function _assertNotDisposed(obj) {
@@ -28,7 +28,7 @@ export default class DI {
             throw new Error('you can use Depender only with functions!');
         }
         
-        let args = getParametersNames(fn).map((fnName) => {
+        let args = getParameterNames(fn).map((fnName) => {
             if(!this._modules.hasOwnProperty(fnName)) {
                 throw new Error(`dependency ${fnName} not available!`);
             } else {
