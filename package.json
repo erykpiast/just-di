@@ -1,6 +1,6 @@
 {
   "name": "just-di",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The simplest dependency injector for Node.js and Browserify.",
   "main": "dist/di.js",
   "repository": {
