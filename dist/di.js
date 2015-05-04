@@ -12,9 +12,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-var _getParametersNames = require('get-parameters-names');
+var _getParameterNames = require('get-parameter-names');
 
-var _getParametersNames2 = _interopRequireDefault(_getParametersNames);
+var _getParameterNames2 = _interopRequireDefault(_getParameterNames);
 
 function _assertNotDisposed(obj) {
     if (!obj.hasOwnProperty('_modules')) {
@@ -46,10 +46,10 @@ var DI = (function () {
             _assertNotDisposed(this);
 
             if ('function' !== typeof fn) {
-                throw new Error('you can use Depender only with functions!');
+                throw new Error('argument has to be a function');
             }
 
-            var args = _getParametersNames2['default'](fn).map(function (fnName) {
+            var args = _getParameterNames2['default'](fn).map(function (fnName) {
                 if (!_this._modules.hasOwnProperty(fnName)) {
                     throw new Error('dependency ' + fnName + ' not available!');
                 } else {
